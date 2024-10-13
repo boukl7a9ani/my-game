@@ -1,13 +1,57 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 20px;
     background-color: #f4f4f4;
-    text-align: center;
 }
-#gameArea {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 600px;
+
+h1 {
+    color: #333;
+}
+
+form {
     background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#profiles {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.profile {
+    background: #fff;
+    border: 1px solid #000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
