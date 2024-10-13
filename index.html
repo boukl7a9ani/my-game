@@ -3,28 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity Connect</title>
     <link rel="stylesheet" href="styles.css">
-    <title>My Game</title>
 </head>
 <body>
-    <h1>Welcome to the Game!</h1>
-    <div id="gameArea">
-        <h2>Choose Your Role</h2>
-        <select id="roleSelect">
-            <option value="student">Student</option>
-            <option value="teacher">Teacher</option>
-        </select>
-        <h2>Enter Your Information</h2>
-        <form id="infoForm">
-            <input type="text" id="name" placeholder="Enter your name" required>
-            <input type="number" id="age" placeholder="Enter your age" required min="1">
-            <input type="text" id="hobbies" placeholder="Enter your hobbies" required>
-            <input type="submit" value="Submit">
-        </form>
-        <div id="output"></div>
-        <h2>All Users</h2>
-        <div id="allUsers"></div>
-    </div>
+    <h1>Welcome to Identity Connect!</h1>
+    <form id="identityForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+        
+        <label for="interests">Interests:</label>
+        <input type="text" id="interests" required>
+        
+        <label for="story">Personal Story:</label>
+        <textarea id="story" rows="4" placeholder="Share your story..."></textarea>
+
+        <div>
+            <label>Publish anonymously?</label>
+            <input type="radio" name="anonymity" value="yes" id="anonymityYes">
+            <label for="anonymityYes">Yes</label>
+            <input type="radio" name="anonymity" value="no" id="anonymityNo" checked>
+            <label for="anonymityNo">No</label>
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+    
+    <h2>Profiles:</h2>
+    <div id="profiles"></div>
+    
     <script src="script.js"></script>
 </body>
 </html>
