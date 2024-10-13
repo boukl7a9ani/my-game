@@ -1,39 +1,24 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('infoForm');
-    const outputDiv = document.getElementById('output');
+document.getElementById('identityForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
 
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
+    // Get values from the form
+    const name = document.getElementById('name').value;
+    const age = document.getElementById('age').value;
+    const interests = document.getElementById('interests').value;
+    const story = document.getElementById('story').value;
+    const anonymity = document.querySelector('input[name="anonymity"]:checked').value;
 
-        const name = document.getElementById('name').value;
-        const age = document.getElementById('age').value;
-        const hobbies = document.getElementById('hobbies').value;
-        const role = document.getElementById('roleSelect').value;
+    // Create a new profile element
+    const profile = document.createElement('div');
+    profile.classList.add('profile');
+    profile.innerHTML = `<strong>Name:</strong> ${anonymity === 'yes' ? 'Anonymous' : name} <br>
+                         <strong>Age:</strong> ${age} <br>
+                         <strong>Interests:</strong> ${interests} <br>
+                         <strong>Personal Story:</strong> ${story}`;
+    
+    // Append the new profile to the profiles section
+    document.getElementById('profiles').appendChild(profile);
 
-        // Store information in localStorage
-        const userInfo = {
-            name: name,
-            age: age,
-            hobbies: hobbies,
-            role: role,
-        };
-        localStorage.setItem(name, JSON.stringify(userInfo));
-
-        // Display user info
-        outputDiv.innerHTML = `<p>Information submitted for ${role}: ${name}, Age: ${age}, Hobbies: ${hobbies}</p>`;
-        
-        // Display all users
-        displayAllUsers();
-    });
-
-    function displayAllUsers() {
-        const allUsersDiv = document.getElementById('allUsers');
-        allUsersDiv.innerHTML = ''; // Clear previous content
-        
-        for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
-            const user = JSON.parse(localStorage.getItem(key));
-            allUsersDiv.innerHTML += `<p>${user.role}: ${user.name}, Age: ${user.age}, Hobbies: ${user.hobbies}</p>`;
-        }
-    }
+    // Clear the form fields
+    document.getElementById('identityForm').reset();
 });
